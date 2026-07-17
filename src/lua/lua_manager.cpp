@@ -1,4 +1,3 @@
-
 ﻿#include "lua_manager.hpp"
 
 #include "file_manager.hpp"

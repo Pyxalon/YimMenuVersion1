@@ -1,8 +1,14 @@
 include(FetchContent)
-message(STATUS "Fetching GTAV-Classes (Build_3751.0)")
+
 FetchContent_Declare(
     gtav_classes
-    GIT_REPOSITORY https://github.com/Hexlane/GTAV-Classes-1.git
-    GIT_TAG Build_3751.0
+    GIT_REPOSITORY https://github.com/Pyxalon/GTAV-Classes-1.git
+    GIT_TAG        b3889
+    GIT_PROGRESS TRUE
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
 )
-FetchContent_MakeAvailable(gtav_classes)
+message("GTAV-Classes")
+if(NOT gtav_classes_POPULATED)
+    FetchContent_Populate(gtav_classes)
+endif()

@@ -30,7 +30,7 @@ namespace big
 		m_sync_data_reader_hook.hook(19, &hooks::sync_reader_serialize_vec3);
 		m_sync_data_reader_hook.hook(21, &hooks::sync_reader_serialize_vec3_signed);
 		m_sync_data_reader_hook.hook(23, &hooks::sync_reader_serialize_array);
-	    m_request_story_news.set_instance("RSN", g_pointers->m_gta.m_request_story_news_ptr, &hooks::request_story_news_data);
+	   // m_request_story_news.set_instance("RSN", g_pointers->m_gta.m_request_story_news_ptr, &hooks::request_story_news_data);
 
 		
 

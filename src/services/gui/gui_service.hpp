@@ -46,7 +46,7 @@ namespace big
 		PLAYER_DATABASE,
 		SESSION_BROWSER,
 		STAT_EDITOR,
-
+		RECOVERY,
 		SETTINGS,
 		LUA_SCRIPTS,
 		CONTEXT_MENU_SETTINGS,
@@ -156,6 +156,7 @@ namespace big
 						{TAB_DECL(PLAYER_DATABASE), view::player_database}},
 						{TAB_DECL(SESSION_BROWSER), view::session_browser}},
 						{TAB_DECL(STAT_EDITOR), view::stat_editor}},
+						{TAB_DECL(RECOVERY), view::recovery}},
 		            },
 		        },
 		    },

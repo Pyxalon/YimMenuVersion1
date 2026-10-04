@@ -38,6 +38,7 @@ namespace big
 		static void overlay();
 		static void root();
 		static void self();
+		static void recovery();
 		static void animations();
 		static void network();
 		static void network_controls();

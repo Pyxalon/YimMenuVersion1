@@ -216,15 +216,34 @@ namespace big
 		}
 		return false;
 	}
-
 	bool translation_service::download_index()
 	{
 		const auto response = download_file("/index.json");
+
+		LOG(INFO) << "Translation index status: " << response.status_code;
+		LOG(INFO) << "Translation index response: " << response.text;
+
 		if (response.status_code == 200)
 		{
 			try
 			{
-				m_remote_index = nlohmann::json::parse(response.text);
+				auto json = nlohmann::json::parse(response.text);
+
+				LOG(INFO) << "Parsed translation index: " << json.dump();
+
+				if (!json.contains("default_lang"))
+				{
+					LOG(WARNING) << "Remote index is missing 'default_lang'";
+					return false;
+				}
+
+				if (!json.contains("translations"))
+				{
+					LOG(WARNING) << "Remote index is missing 'translations'";
+					return false;
+				}
+
+				m_remote_index = json;
 			}
 			catch (std::exception& e)
 			{
@@ -234,8 +253,9 @@ namespace big
 
 			return true;
 		}
+
 		return false;
-	}
+	};
 
 	bool translation_service::load_local_index()
 	{
